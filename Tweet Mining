@@ -1,0 +1,25 @@
+#Data Mining from Twitter
+
+
+#Import the required packages
+library(twitteR)
+library(devtools)
+
+
+#Create twitter developer free account and enter the credentials
+Consumer_key<- "Enter you key here"
+Consumer_secret <- "Enter you Secret code here"
+access_token <- "Enter your token here"
+access_token_secret <- "Enter you token secret here"                                   (e.g   ---->   ANMfdluhyR3SxRQvJbT)
+setup_twitter_oauth(Consumer_key,Consumer_secret,access_token,access_token_secret)
+
+
+#Enter the movie name, number of tweets you want and language
+mytweets <- searchTwitter("Enter the movie name here", n=1000, lang="en")
+
+
+#Create the csv files
+write.csv(twListToDF(mytweets), file="Twitter Data.csv")
+
+#Print all the tweets
+print(mytweets)
